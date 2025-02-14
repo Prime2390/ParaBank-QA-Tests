@@ -5,6 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 public class RegisterPage {
      WebDriver driver;
@@ -33,7 +36,8 @@ public class RegisterPage {
     private WebElement confirmPassword;
     @FindBy(xpath = "//input[@value='Register']")
     private WebElement registerButton;
-
+    @FindBy(xpath = "//span[contains(@id, 'errors')]")
+    private List<WebElement> errorMessages;
 
      public RegisterPage(WebDriver driver) {
          this.driver = driver;
@@ -53,12 +57,34 @@ public class RegisterPage {
          confirmPassword.sendKeys(registerModel.getPassword());
          return this;
     }
-    public LoginPage clickRegisterButtonWithInvalidData() {
+    public RegisterPage registerWithDifferentPassword(RegisterModelFaker registerModel) {
+        firstName.sendKeys(registerModel.getFirstName());
+        lastName.sendKeys(registerModel.getLastName());
+        street.sendKeys(registerModel.getAddress());
+        city.sendKeys(registerModel.getCity());
+        state.sendKeys(registerModel.getState());
+        zipCode.sendKeys(registerModel.getZipCode());
+        phoneNumber.sendKeys(registerModel.getPhoneNumber());
+        ssn.sendKeys(registerModel.getPesel());
+        username.sendKeys(registerModel.getLogin());
+        password.sendKeys(registerModel.getPassword());
+        confirmPassword.sendKeys(registerModel.getConfirmPassword());
+        return this;
+    }
+    public LoginPage clickRegisterButtonWithValidData() {
          registerButton.click();
         return new LoginPage(driver);
     }
-
-
+    public RegisterPage clickRegisterButtonWithInvalidData() {
+         registerButton.click();
+         return this;
+    }
+    public List<String> getErrorMessages() {
+        return errorMessages
+                .stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
+    }
 
 
 }
