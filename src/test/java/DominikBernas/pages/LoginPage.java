@@ -11,6 +11,8 @@ public class LoginPage {
     @Getter
     @FindBy(className = "title")
     public WebElement title;
+    @FindBy(xpath = "//a[text()='Log Out']")
+    public WebElement logoutButton;
 
 
 
@@ -18,5 +20,9 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
+    }
+    public HomePage clickLogoutButton() {
+        logoutButton.click();
+        return new HomePage(driver);
     }
 }

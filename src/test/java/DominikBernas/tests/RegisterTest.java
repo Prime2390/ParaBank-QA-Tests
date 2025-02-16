@@ -1,6 +1,7 @@
 package DominikBernas.tests;
 
 import DominikBernas.basetest.BaseTest;
+import DominikBernas.models.FirstUserModel;
 import DominikBernas.models.RegisterModelFaker;
 import DominikBernas.pages.HomePage;
 import org.openqa.selenium.WebElement;
@@ -49,6 +50,24 @@ public class RegisterTest extends BaseTest {
                 .clickRegisterButtonWithInvalidData()
                 .getErrorMessages();
 
-        Assert.assertEquals(errorMessages.get(0), "Passwords did not match.");
+        Assert.assertEquals(errorMessages.getFirst(), "Passwords did not match.");
+    }
+    @Test
+    public void registerWithSameUsername() {
+        FirstUserModel firstUserModel = new FirstUserModel();
+
+      List<String> Error =  new HomePage(driver)
+                .clickRegisterButton()
+                .registerWithSameUsername(firstUserModel)
+                .clickRegisterButtonWithValidData()
+                .clickLogoutButton()
+                .clickRegisterButton()
+                .registerWithSameUsername(firstUserModel)
+                .clickRegisterButtonWithInvalidData()
+                .getErrorMessages();
+
+        System.out.println(Error.size());
+        System.out.println(Error.getFirst());
+        Assert.assertEquals(Error.getFirst(), "This username already exists.");
     }
 }

@@ -1,4 +1,5 @@
 package DominikBernas.pages;
+import DominikBernas.models.FirstUserModel;
 import DominikBernas.models.RegisterModelFaker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,18 +44,32 @@ public class RegisterPage {
          this.driver = driver;
          PageFactory.initElements(driver, this);
      }
+    public RegisterPage registerWithSameUsername(FirstUserModel firstUserModel) {
+        firstName.sendKeys(firstUserModel.getFirstName());
+        lastName.sendKeys(firstUserModel.getLastName());
+        street.sendKeys(firstUserModel.getAddress());
+        city.sendKeys(firstUserModel.getCity());
+        state.sendKeys(firstUserModel.getState());
+        zipCode.sendKeys(firstUserModel.getZip());
+        phoneNumber.sendKeys(firstUserModel.getPhone());
+        ssn.sendKeys(firstUserModel.getSsn());
+        username.sendKeys(firstUserModel.getUsername());
+        password.sendKeys(firstUserModel.getPassword());
+        confirmPassword.sendKeys(firstUserModel.getPassword());
+        return this;
+    }
     public RegisterPage registerWithValidData(RegisterModelFaker registerModel) {
-         firstName.sendKeys(registerModel.getFirstName());
-         lastName.sendKeys(registerModel.getLastName());
-         street.sendKeys(registerModel.getAddress());
-         city.sendKeys(registerModel.getCity());
-         state.sendKeys(registerModel.getState());
-         zipCode.sendKeys(registerModel.getZipCode());
-         phoneNumber.sendKeys(registerModel.getPhoneNumber());
-         ssn.sendKeys(registerModel.getPesel());
-         username.sendKeys(registerModel.getLogin());
-         password.sendKeys(registerModel.getPassword());
-         confirmPassword.sendKeys(registerModel.getPassword());
+        firstName.sendKeys(registerModel.getFirstName());
+        lastName.sendKeys(registerModel.getLastName());
+        street.sendKeys(registerModel.getAddress());
+        city.sendKeys(registerModel.getCity());
+        state.sendKeys(registerModel.getState());
+        zipCode.sendKeys(registerModel.getZipCode());
+        phoneNumber.sendKeys(registerModel.getPhoneNumber());
+        ssn.sendKeys(registerModel.getPesel());
+        username.sendKeys(registerModel.getLogin());
+        password.sendKeys(registerModel.getPassword());
+        confirmPassword.sendKeys(registerModel.getPassword());
          return this;
     }
     public RegisterPage registerWithDifferentPassword(RegisterModelFaker registerModel) {
