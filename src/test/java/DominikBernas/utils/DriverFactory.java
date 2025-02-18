@@ -8,7 +8,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class DriverFactory {
 
     public static WebDriver getDriver(boolean isHeadless) {
-        WebDriverManager.chromedriver().driverVersion("131.0.6778.204").setup();
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
 
         if (isHeadless) {

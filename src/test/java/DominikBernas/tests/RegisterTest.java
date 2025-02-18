@@ -50,7 +50,7 @@ public class RegisterTest extends BaseTest {
                 .clickRegisterButtonWithInvalidData()
                 .getErrorMessages();
 
-        Assert.assertEquals(errorMessages.getFirst(), "Passwords did not match.");
+        Assert.assertEquals(errorMessages.get(0), "Passwords did not match.");
     }
     @Test
     public void registerWithSameUsername() {
@@ -67,7 +67,7 @@ public class RegisterTest extends BaseTest {
                 .getErrorMessages();
 
         System.out.println(Error.size());
-        System.out.println(Error.getFirst());
-        Assert.assertEquals(Error.getFirst(), "This username already exists.");
+        System.out.println(Error.get(0));
+        Assert.assertEquals(Error.get(0), "This username already exists.");
     }
 }

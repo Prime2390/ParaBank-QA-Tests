@@ -1,9 +1,8 @@
 package DominikBernas.models;
 
-import com.github.javafaker.Faker;
-import lombok.Getter;
 
-@Getter
+import com.github.javafaker.Faker;
+
 public class RegisterModelFaker {
 
  private final Faker faker = new Faker();
@@ -19,4 +18,54 @@ public class RegisterModelFaker {
  private final String login = faker.name().username();
  private final String password = faker.internet().password();
  private final String confirmPassword = faker.internet().password();
+
+
+
+ public String getFirstName() {
+  return firstName;
+ }
+
+ public String getLastName() {
+  return lastName;
+ }
+
+ public String getAddress() {
+  return address;
+ }
+
+ public String getCity() {
+  return city;
+ }
+
+ public String getState() {
+  return state;
+ }
+
+ public String getCountry() {
+  return country;
+ }
+
+ public String getZipCode() {
+  return zipCode;
+ }
+
+ public String getPhoneNumber() {
+  return phoneNumber;
+ }
+
+ public String getPesel() {
+  return pesel;
+ }
+
+ public String getLogin() {
+  return login;
+ }
+
+ public String getPassword() {
+  return password;
+ }
+
+ public String getConfirmPassword() {
+  return confirmPassword;
+ }
 }

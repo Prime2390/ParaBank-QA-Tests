@@ -1,8 +1,6 @@
 package DominikBernas.models;
 
-import lombok.Getter;
 
-@Getter
 public class FirstUserModel {
     private final String firstName = "Dominik";
     private final String lastName = "Bernas";
@@ -15,4 +13,43 @@ public class FirstUserModel {
     private final String username = "Tester2390";
     private final String password = "Testerpass2390";
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }
