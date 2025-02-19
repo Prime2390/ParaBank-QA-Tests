@@ -1,5 +1,6 @@
 package DominikBernas.basetest;
 
+import DominikBernas.pages.AdminPage;
 import DominikBernas.utils.DriverFactory;
 import DominikBernas.utils.ReportManager;
 import com.aventstack.extentreports.ExtentReports;
@@ -40,13 +41,14 @@ public class BaseTest {
         driver = DriverFactory.getDriver(isHeadless);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        AdminPage adminPage = new AdminPage(driver);
+        adminPage.resetDatabase();
         driver.get("https://parabank.parasoft.com/parabank/index.htm");
-
 
     }
     @AfterMethod
     public void tearDown(){
-        driver.quit();
+       driver.quit();
     }
 
 }

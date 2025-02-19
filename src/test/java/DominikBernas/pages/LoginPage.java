@@ -13,6 +13,8 @@ public class LoginPage {
     public WebElement logoutButton;
     @FindBy(xpath = "//h1[@class='title' and contains(text(), 'Accounts Overview')]")
     private WebElement accountsOverviewHeader;
+    @FindBy(xpath = "//img[@title='ParaBank']")
+    private WebElement paraBank;
 
 
 
@@ -32,5 +34,8 @@ public class LoginPage {
 
     public WebElement getAccountsOverviewHeader() {
         return accountsOverviewHeader;
+    }
+    public WebElement getParaBank() {
+        return paraBank;
     }
 }

@@ -22,7 +22,7 @@ public class HomePage {
     private WebElement loginButton;
 
     @FindBy(xpath = "//a[contains(@href, 'lookup.htm')]")
-    private WebElement forgotPasswordLink;
+    private WebElement forgotLoginButton;
     @FindBy(className = "error")
     private WebElement errorMessage;
 
@@ -55,5 +55,9 @@ public class HomePage {
 
     public WebElement getErrorMessage() {
         return errorMessage;
+    }
+    public ForgotLoginInfoPage forgotLoginInfo(){
+        forgotLoginButton.click();
+        return new ForgotLoginInfoPage(driver);
     }
 }

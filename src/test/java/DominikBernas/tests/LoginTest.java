@@ -5,20 +5,19 @@ import DominikBernas.models.FirstUserModel;
 import DominikBernas.models.RegisterModelFaker;
 import DominikBernas.pages.HomePage;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest  extends BaseTest {
     @Test
     public void loginTestWithValidData(){
-        RegisterModelFaker registerModelFaker = new RegisterModelFaker();
+        FirstUserModel firstUserModel = new FirstUserModel();
         new HomePage(driver)
                 .clickRegisterButton()
-                .registerWithValidData(registerModelFaker)
-                .clickRegisterButtonWithValidData();
-
-
-        FirstUserModel firstUserModel = new FirstUserModel();
+                .registerWithSameUsername(firstUserModel)
+                .clickRegisterButtonWithValidData()
+                .clickLogoutButton();
         WebElement overviewHeader = new HomePage(driver)
                 .loginWithCorrectData(firstUserModel)
                 .getAccountsOverviewHeader();
