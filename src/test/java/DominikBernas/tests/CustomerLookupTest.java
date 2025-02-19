@@ -2,13 +2,12 @@ package DominikBernas.tests;
 
 import DominikBernas.basetest.BaseTest;
 import DominikBernas.models.FirstUserModel;
-import DominikBernas.models.RegisterModelFaker;
 import DominikBernas.pages.HomePage;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class CustomerLookup extends BaseTest {
+public class CustomerLookupTest extends BaseTest {
     @Test
     public void customerLookupWithValidData() {
         FirstUserModel firstUserModel = new FirstUserModel();
