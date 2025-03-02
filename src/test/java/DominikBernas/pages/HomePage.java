@@ -27,28 +27,31 @@ public class HomePage {
     private WebElement errorMessage;
 
 
-
     public HomePage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    public RegisterPage clickRegisterButton(){
+
+    public RegisterPage clickRegisterButton() {
         registerButton.click();
         return new RegisterPage(driver);
     }
-    public LoginPage loginWithCorrectData(FirstUserModel firstUserModel){
-    usernameField.sendKeys(firstUserModel.getUsername());
-    passwordField.sendKeys(firstUserModel.getPassword());
-    loginButton.click();
-    return new LoginPage(driver);
+
+    public LoginPage loginWithCorrectData(FirstUserModel firstUserModel) {
+        usernameField.sendKeys(firstUserModel.getUsername());
+        passwordField.sendKeys(firstUserModel.getPassword());
+        loginButton.click();
+        return new LoginPage(driver);
     }
-    public HomePage loginWithIncorrectData(RegisterModelFaker registerModelFaker){
+
+    public HomePage loginWithIncorrectData(RegisterModelFaker registerModelFaker) {
         usernameField.sendKeys(registerModelFaker.getLogin());
         passwordField.sendKeys(registerModelFaker.getPassword());
         loginButton.click();
         return new HomePage(driver);
     }
-    public HomePage clickLoginButton(){
+
+    public HomePage clickLoginButton() {
         loginButton.click();
         return new HomePage(driver);
     }
@@ -56,7 +59,8 @@ public class HomePage {
     public WebElement getErrorMessage() {
         return errorMessage;
     }
-    public ForgotLoginInfoPage forgotLoginInfo(){
+
+    public ForgotLoginInfoPage forgotLoginInfo() {
         forgotLoginButton.click();
         return new ForgotLoginInfoPage(driver);
     }

@@ -7,6 +7,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
+
 import java.time.Duration;
 
 @Listeners(DominikBernas.utils.TestListener.class)
@@ -19,8 +20,8 @@ public class BaseTest {
     protected void LogStep(String message) {
         if (test != null) {
             test.info(message);
-        }else{
-            System.out.println("LogStep: "+message);
+        } else {
+            System.out.println("LogStep: " + message);
         }
     }
 
@@ -29,15 +30,17 @@ public class BaseTest {
     public void setupSuite() {
         extent = ReportManager.getInstance();
     }
+
     @AfterSuite
     public void tearDownSuite() {
         if (extent != null) {
             extent.flush();
         }
     }
+
     @BeforeMethod
-    public void setUp(){
-        boolean isHeadless = true  ;
+    public void setUp() {
+        boolean isHeadless = true;
         driver = DriverFactory.getDriver(isHeadless);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -46,9 +49,10 @@ public class BaseTest {
         driver.get("https://parabank.parasoft.com/parabank/index.htm");
 
     }
+
     @AfterMethod
-    public void tearDown(){
-      driver.quit();
+    public void tearDown() {
+        driver.quit();
     }
 
 }

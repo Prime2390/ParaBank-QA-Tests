@@ -28,15 +28,17 @@ public class CustomerLookupTest extends BaseTest {
         org.testng.Assert.assertEquals(info.getText(), "Username: Tester2390\n" +
                 "Password: Testerpass2390");
     }
+
     @Test
     public void customerLookupWithInvalidData() {
         RegisterModelFaker registerModelFaker = new RegisterModelFaker();
-       WebElement Error = new HomePage(driver)
+        WebElement Error = new HomePage(driver)
                 .forgotLoginInfo()
                 .enterCastomerLookupWithInvalidData(registerModelFaker)
                 .getErrorMessage();
         System.out.println(Error.getText());
     }
+
     @Test
     public void customerLookupWithoutData() {
         List<String> Errors = new HomePage(driver)
@@ -57,6 +59,6 @@ public class CustomerLookupTest extends BaseTest {
         System.out.println(Errors.get(4));
         System.out.println(Errors.get(5));
         System.out.println(Errors.get(6));
-        
+
     }
 }

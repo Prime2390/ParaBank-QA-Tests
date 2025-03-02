@@ -1,4 +1,5 @@
 package DominikBernas.pages;
+
 import DominikBernas.models.FirstUserModel;
 import DominikBernas.models.RegisterModelFaker;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +12,7 @@ import java.util.stream.Collectors;
 
 
 public class RegisterPage {
-     WebDriver driver;
+    WebDriver driver;
 
     @FindBy(id = "customer.firstName")
     private WebElement firstName;
@@ -40,10 +41,11 @@ public class RegisterPage {
     @FindBy(xpath = "//span[contains(@id, 'errors')]")
     private List<WebElement> errorMessages;
 
-     public RegisterPage(WebDriver driver) {
-         this.driver = driver;
-         PageFactory.initElements(driver, this);
-     }
+    public RegisterPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
     public RegisterPage registerWithSameUsername(FirstUserModel firstUserModel) {
         firstName.sendKeys(firstUserModel.getFirstName());
         lastName.sendKeys(firstUserModel.getLastName());
@@ -58,6 +60,7 @@ public class RegisterPage {
         confirmPassword.sendKeys(firstUserModel.getPassword());
         return this;
     }
+
     public RegisterPage registerWithValidData(RegisterModelFaker registerModel) {
         firstName.sendKeys(registerModel.getFirstName());
         lastName.sendKeys(registerModel.getLastName());
@@ -70,8 +73,9 @@ public class RegisterPage {
         username.sendKeys(registerModel.getLogin());
         password.sendKeys(registerModel.getPassword());
         confirmPassword.sendKeys(registerModel.getPassword());
-         return this;
+        return this;
     }
+
     public RegisterPage registerWithDifferentPassword(RegisterModelFaker registerModel) {
         firstName.sendKeys(registerModel.getFirstName());
         lastName.sendKeys(registerModel.getLastName());
@@ -86,14 +90,17 @@ public class RegisterPage {
         confirmPassword.sendKeys(registerModel.getConfirmPassword());
         return this;
     }
+
     public LoginPage clickRegisterButtonWithValidData() {
-         registerButton.click();
+        registerButton.click();
         return new LoginPage(driver);
     }
+
     public RegisterPage clickRegisterButtonWithInvalidData() {
-         registerButton.click();
-         return this;
+        registerButton.click();
+        return this;
     }
+
     public List<String> getErrorMessages() {
         return errorMessages
                 .stream()

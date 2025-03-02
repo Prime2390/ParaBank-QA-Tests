@@ -41,17 +41,17 @@ public class LoginPage {
     private WebElement paraBank;
 
 
-
-
     public LoginPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+
     public HomePage clickLogoutButton() {
         logoutButton.click();
         return new HomePage(driver);
     }
-    public RequestLoanPage clickRequestLoanLink(){
+
+    public RequestLoanPage clickRequestLoanLink() {
         requestLoanLink.click();
         return new RequestLoanPage(driver);
     }
@@ -59,9 +59,11 @@ public class LoginPage {
     public WebElement getTitle() {
         return title;
     }
+
     public WebElement getAccountsOverviewHeader() {
         return accountsOverviewHeader;
     }
+
     public WebElement getParaBank() {
         return paraBank;
     }

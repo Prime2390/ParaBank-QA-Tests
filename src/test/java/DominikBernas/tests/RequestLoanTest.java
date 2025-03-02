@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class RequestLoanTest extends BaseTest {
 
     @Test
-    public void requestLoanWithValidData(){
+    public void requestLoanWithValidData() {
         FirstUserModel firstUserModel = new FirstUserModel();
         new HomePage(driver)
                 .clickRegisterButton()
@@ -27,7 +27,7 @@ public class RequestLoanTest extends BaseTest {
     }
 
     @Test
-    public void requestLoanWithoutData(){
+    public void requestLoanWithoutData() {
         FirstUserModel firstUserModel = new FirstUserModel();
         new HomePage(driver)
                 .clickRegisterButton()
@@ -42,21 +42,23 @@ public class RequestLoanTest extends BaseTest {
 
         Assert.assertEquals(Error.getText(), "An internal error has occurred and has been logged.");
     }
+
     @Test
-    public void requestLoanWithNegativeAmount(){
+    public void requestLoanWithNegativeAmount() {
         FirstUserModel firstUserModel = new FirstUserModel();
         new HomePage(driver)
                 .clickRegisterButton()
                 .registerWithSameUsername(firstUserModel)
                 .clickRegisterButtonWithValidData()
                 .clickLogoutButton();
-       WebElement error = new HomePage(driver)
+        WebElement error = new HomePage(driver)
                 .loginWithCorrectData(firstUserModel)
                 .clickRequestLoanLink()
                 .applyForLoan("-5000", "-1000")
                 .getErrorTitle();
         Assert.assertEquals(error.getText(), "We cannot grant a loan in that amount with your available funds.");
     }
+
     @Test
     public void requestLoanWithTooManyFunds() {
         FirstUserModel firstUserModel = new FirstUserModel();
@@ -73,8 +75,9 @@ public class RequestLoanTest extends BaseTest {
         Assert.assertEquals(error.getText(), "You do not have sufficient funds for the given down payment.");
 
     }
+
     @Test
-    public void requestLoanWithValidDataWithLetters(){
+    public void requestLoanWithValidDataWithLetters() {
         FirstUserModel firstUserModel = new FirstUserModel();
         new HomePage(driver)
                 .clickRegisterButton()

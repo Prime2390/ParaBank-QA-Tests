@@ -12,7 +12,7 @@ public class RequestLoanPage {
     private WebElement amountInput;
     @FindBy(id = "downPayment")
     private WebElement downPaymentInput;
-    @FindBy(css= ".button[value ='Apply Now']")
+    @FindBy(css = ".button[value ='Apply Now']")
     private WebElement applyNowButton;
     @FindBy(xpath = "//div[@id = \"loanRequestApproved\"]/p[1]")
     private WebElement requestLoanApproved;
@@ -25,21 +25,25 @@ public class RequestLoanPage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    public RequestLoanPage applyForLoan(String loan, String Payment){
+
+    public RequestLoanPage applyForLoan(String loan, String Payment) {
         new SeleniumWaiter().waitForClickable(amountInput, driver);
         amountInput.sendKeys(loan);
         downPaymentInput.sendKeys(Payment);
         applyNowButton.click();
         return this;
     }
+
     public String getRequestLoanApproved() {
         new SeleniumWaiter().waitForVisible(requestLoanApproved, driver);
         return requestLoanApproved.getText();
     }
+
     public WebElement getErrorMessage() {
         new SeleniumWaiter().waitForVisible(errorMessage, driver);
         return errorMessage;
     }
+
     public WebElement getErrorTitle() {
         new SeleniumWaiter().waitForVisible(errorTitle, driver);
         return errorTitle;

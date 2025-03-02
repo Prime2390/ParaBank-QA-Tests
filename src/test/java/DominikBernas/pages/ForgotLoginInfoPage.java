@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ForgotLoginInfoPage {
-   WebDriver driver;
+    WebDriver driver;
     @FindBy(id = "firstName")
     private WebElement firstNameInput;
 
@@ -38,7 +38,7 @@ public class ForgotLoginInfoPage {
     @FindBy(xpath = "//input[@type='submit' and @class='button' and @value='Find My Login Info']")
     private WebElement findMyLoginInfoButton;
 
-    @FindBy(xpath ="//p[2]")
+    @FindBy(xpath = "//p[2]")
     private WebElement Username;
 
     @FindBy(className = "error")
@@ -48,12 +48,11 @@ public class ForgotLoginInfoPage {
     private List<WebElement> errorMessages;
 
 
-
-
     public ForgotLoginInfoPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+
     public ForgotLoginInfoPage enterCastomerLookupWithValidData(FirstUserModel firstUserModel) {
         firstNameInput.sendKeys(firstUserModel.getFirstName());
         lastNameInput.sendKeys(firstUserModel.getLastName());
@@ -65,6 +64,7 @@ public class ForgotLoginInfoPage {
         findMyLoginInfoButton.click();
         return this;
     }
+
     public ForgotLoginInfoPage enterCastomerLookupWithInvalidData(RegisterModelFaker firstUserModel) {
         firstNameInput.sendKeys(firstUserModel.getFirstName());
         lastNameInput.sendKeys(firstUserModel.getLastName());
@@ -77,16 +77,19 @@ public class ForgotLoginInfoPage {
         return this;
     }
 
-    public ForgotLoginInfoPage ForgotLoginButton(){
+    public ForgotLoginInfoPage ForgotLoginButton() {
         findMyLoginInfoButton.click();
         return this;
     }
-   public WebElement getUsername() {
+
+    public WebElement getUsername() {
         return Username;
-   }
-   public WebElement getErrorMessage() {
+    }
+
+    public WebElement getErrorMessage() {
         return errorMessage;
-   }
+    }
+
     public List<String> getErrorMessages() {
         return errorMessages
                 .stream()

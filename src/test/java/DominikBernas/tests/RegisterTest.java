@@ -21,9 +21,10 @@ public class RegisterTest extends BaseTest {
                 .getTitle();
         Assert.assertTrue(welcome.getText().contains("Welcome"));
     }
+
     @Test
     public void registerWithoutData() {
-      List<String> errors =  new HomePage(driver)
+        List<String> errors = new HomePage(driver)
                 .clickRegisterButton()
                 .clickRegisterButtonWithInvalidData()
                 .getErrorMessages();
@@ -40,11 +41,12 @@ public class RegisterTest extends BaseTest {
         Assert.assertEquals(errors.get(9), "Password confirmation is required.");
 
     }
+
     @Test
     public void registerWithDifferentPassword() {
         RegisterModelFaker registerModelFaker = new RegisterModelFaker();
 
-       List<String> errorMessages = new HomePage(driver)
+        List<String> errorMessages = new HomePage(driver)
                 .clickRegisterButton()
                 .registerWithDifferentPassword(registerModelFaker)
                 .clickRegisterButtonWithInvalidData()
@@ -52,11 +54,12 @@ public class RegisterTest extends BaseTest {
 
         Assert.assertEquals(errorMessages.get(0), "Passwords did not match.");
     }
+
     @Test
     public void registerWithSameUsername() {
         FirstUserModel firstUserModel = new FirstUserModel();
 
-      List<String> Error =  new HomePage(driver)
+        List<String> Error = new HomePage(driver)
                 .clickRegisterButton()
                 .registerWithSameUsername(firstUserModel)
                 .clickRegisterButtonWithValidData()
