@@ -9,9 +9,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest {
+public class LoginTest  extends BaseTest {
     @Test
-    public void loginTestWithValidData() {
+    public void loginTestWithValidData(){
         FirstUserModel firstUserModel = new FirstUserModel();
         new HomePage(driver)
                 .clickRegisterButton()
@@ -23,19 +23,17 @@ public class LoginTest extends BaseTest {
                 .getAccountsOverviewHeader();
         Assert.assertEquals(overviewHeader.getText(), "Accounts Overview");
     }
-
     @Test
-    public void loginTestWithInvalidtData() {
+    public void loginTestWithInvalidData(){
         RegisterModelFaker registerModelFaker = new RegisterModelFaker();
 
-        WebElement error = new HomePage(driver)
+       WebElement error = new HomePage(driver)
                 .loginWithIncorrectData(registerModelFaker)
                 .getErrorMessage();
         Assert.assertEquals(error.getText(), "The username and password could not be verified.");
     }
-
     @Test
-    public void loginTestWithoutDana() {
+    public void loginTestWithoutDana(){
         WebElement error = new HomePage(driver)
                 .clickLoginButton()
                 .getErrorMessage();
