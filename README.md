@@ -1,49 +1,59 @@
-<h3>📌 Overview</h3>
-<p>This repository contains automated test scripts for the <strong>ParaBank</strong> web application. The tests are written in <strong>Java</strong> using the <strong>Selenium WebDriver</strong> framework with the <strong>Page Object Model (POM)</strong> structure. The purpose of this project is to validate the functionality and usability of the ParaBank system.</p>
+<h1 align="center">ParaBank Automation Test</h1>
 
-<h3>🛠 Features</h3>
+<h2>📌 Project Description</h2>
+<p>This project contains automated tests for the <strong>ParaBank</strong> application, verifying key online banking functionalities. The tests are written in <strong>Java</strong> and utilize <strong>Selenium WebDriver, TestNG, and Page Object Model (POM)</strong>.</p>
+
+<h2>🛠 Technologies & Tools</h2>
 <ul>
-    <li>✅ Automated UI testing with Selenium WebDriver</li>
-    <li>✅ Page Object Model (POM) architecture for better maintainability</li>
-    <li>✅ Test execution and reporting with JUnit/TestNG</li>
-    <li>✅ Integration with Maven for dependency management</li>
-    <li>✅ Parameterized tests for flexibility</li>
+  <li><strong>Java</strong> – Programming language</li>
+  <li><strong>Selenium WebDriver</strong> – Browser automation</li>
+  <li><strong>TestNG</strong> – Test execution framework</li>
+  <li><strong>Maven</strong> – Dependency management</li>
+  <li><strong>Faker</strong> – Random test data generation</li>
 </ul>
 
-<h3>🏗 Technologies Used</h3>
-<ul>
-    <li><strong>Java</strong> (Test scripts implementation)</li>
-    <li><strong>Selenium WebDriver</strong> (Automated browser interactions)</li>
-    <li><strong>JUnit/TestNG</strong> (Test framework)</li>
-    <li><strong>Maven</strong> (Build automation and dependency management)</li>
-</ul>
-
-<h3>🚀 Setup Instructions</h3>
-<ol>
-    <li>Clone this repository:
-        <pre>git clone https://github.com/Prime2390/ParaBankAutomationTest.git</pre>
-    </li>
-    <li>Navigate to the project directory:
-        <pre>cd ParaBankAutomationTest
+<h2>📂 Project Structure</h2>
+<pre>
+ParaBankAutomationTest/
+│── src/
+│   ├── main/
+│   │   └── java/pl/aplikacja/Main.java  # Main application class
+│   ├── test/
+│   │   ├── DominikBernas/basetest/     # Base test class
+│   │   ├── DominikBernas/models/       # Test data models
+│   │   ├── DominikBernas/pages/        # Page Object Model
+│   │   ├── DominikBernas/tests/        # Test scenarios
+│   │   ├── DominikBernas/utils/        # Utility functions
+│── pom.xml  # Maven configuration
+│── testng.xml  # TestNG configuration
+│── README.md  # Project documentation
+│── .gitignore  # Git ignored files
 </pre>
-    </li>
-    <li>Install dependencies using Maven:
-        <pre>mvn clean install</pre>
-    </li>
-    <li>Run the tests:
-        <pre>mvn test</pre>
-    </li>
+
+<h2>🚀 Running Tests</h2>
+<ol>
+  <li><strong>Clone the repository:</strong>
+    <pre>git clone https://github.com/Prime2390/ParaBankAutomationTest.git
+cd ParaBankAutomationTest</pre>
+  </li>
+  <li><strong>Install dependencies:</strong>
+    <pre>mvn clean install</pre>
+  </li>
+  <li><strong>Run tests:</strong>
+    <pre>mvn test</pre>
+    Or run specific tests:
+    <pre>mvn test -Dtest=LoginTest</pre>
+  </li>
 </ol>
 
-<h3>🔍 Test Scenarios Covered</h3>
+<h2>📝 Test Scenarios</h2>
+
 <ul>
-    <li>📌 <strong>Register</strong></li>
-    <li>📌 <strong>User login/logout</strong></li>
-    <li>📌 <strong>Account creation</strong></li>
-    <li>📌 <strong>Funds transfer</strong></li>
-    <li>📌 <strong>Bill payment</strong></li>
-    <li>📌 <strong>Transaction history validation</strong></li>
+  <li>✅ User Registration</li>
+  <li>✅ User Login</li>
+  <li>✅ Password Recovery</li>
+  <li>✅ Loan Request</li>
 </ul>
 
-<h3>🤝 Contribution</h3>
-<p>Feel free to submit pull requests or create issues if you find any bugs or want to improve the tests.</p>
+<h2>📌 Author</h2>
+<p>Project developed by <strong>DominikBernas</strong>.</p>
