@@ -5,7 +5,6 @@ import DominikBernas.models.FirstUserModel;
 import DominikBernas.models.RegisterModelFaker;
 import DominikBernas.pages.HomePage;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
