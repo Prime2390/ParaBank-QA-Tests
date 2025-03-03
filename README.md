@@ -24,7 +24,8 @@
         <pre>git clone https://github.com/Prime2390/ParaBankAutomationTest.git</pre>
     </li>
     <li>Navigate to the project directory:
-        <pre>cd parabank-tests</pre>
+        <pre>cd ParaBankAutomationTest
+</pre>
     </li>
     <li>Install dependencies using Maven:
         <pre>mvn clean install</pre>
