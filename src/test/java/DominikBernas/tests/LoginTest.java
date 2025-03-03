@@ -29,7 +29,7 @@ public class LoginTest  extends BaseTest {
        WebElement error = new HomePage(driver)
                 .loginWithIncorrectData(registerModelFaker)
                 .getErrorMessage();
-        Assert.assertEquals(error.getText(), "The username and password could not be verified.");
+        Assert.assertEquals(error.getText(), "An internal error has occurred and has been logged.");
     }
     @Test
     public void loginTestWithoutDana(){
