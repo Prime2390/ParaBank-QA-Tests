@@ -37,6 +37,7 @@
 
 <h3>🔍 Test Scenarios Covered</h3>
 <ul>
+    <li>📌 <strong>Register</strong></li>
     <li>📌 <strong>User login/logout</strong></li>
     <li>📌 <strong>Account creation</strong></li>
     <li>📌 <strong>Funds transfer</strong></li>
