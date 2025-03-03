@@ -21,7 +21,7 @@
 <h3>🚀 Setup Instructions</h3>
 <ol>
     <li>Clone this repository:
-        <pre>git clone https://github.com/yourusername/parabank-tests.git</pre>
+        <pre>git clone https://github.com/Prime2390/ParaBankAutomationTest.git</pre>
     </li>
     <li>Navigate to the project directory:
         <pre>cd parabank-tests</pre>
